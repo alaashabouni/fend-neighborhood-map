@@ -43,6 +43,23 @@
     "state": "CA",
     "url": "https://timelesscoffee.com/",
     "pos": {"lat":  37.8282023, "lng":-122.2496578}
-  }
+  },
 
+  {
+    "name": "Hast Muerta Coffee",
+    "street": "2701 Fruitvale Ave",
+    "city": "Oakland",
+    "state": "CA",
+    "url": "http://www.hastamuertecoffee.com/",
+    "pos": {"lat":  37.790658, "lng":-122.220048}
+  },
+
+  {
+    "name": "Trouble Coffee",
+    "street": "1545 Willow St",
+    "city": "Oakland",
+    "state": "CA",
+    "url": "https://www.trouble.coffee/",
+    "pos": {"lat":  37.813680, "lng":-122.295861}
+  }
 ]
