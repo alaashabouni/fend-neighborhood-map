@@ -3,6 +3,9 @@ import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import locations from '../data/locations.json';
 
 const MAP_KEY = "AIzaSyBi7tDyVzA7Ncf1kk-wCYxJrqDXd0qHUNs";
+const FS_CLIENT = "430UINZRHZVRKNN3SUYH3TCKBNBFJTVJ2CDOCUGRETGYHWHJ";
+const FS_SECRET = "MEL51JWGKO054COM0GQBLQ2RK1DJPNLUIPK5A4GH1CZCAWO2";
+const FS_VERSION = "20180323";
 
 class MapDisplay extends Component {
     state = {
@@ -30,6 +33,11 @@ class MapDisplay extends Component {
             .activeMarker
             .setAnimation(null);
         this.setState({showingInfoWindow: false, activeMarker: null, activeMarkerProps: null});
+    }
+
+    getFourSquareInfo = (props, data) => {
+      return data.response.venues
+      .filter(item => intem.name.includes(props.name) || props.nameincludes(item.name));
     }
 
     onMarkerClick = (props, marker, e) => {
