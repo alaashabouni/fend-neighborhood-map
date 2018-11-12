@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import locations from './data/location.json';
+import MapDisplay from '.components/MapDisplay';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+  state = {
+    lat: 37.8044,
+    lon: 122.2711,
+    zoom: 13,
+    all: locations
+  }
+
+  render = () => {
+    return ( <div className="App">
+        <div>
+          <h1>Oakland, CA Coffee Shops</h1>
+        </div>
+          <MapDisplay
+            lat={this.state.lat}
+            lon={this.state.lon}
+            zoom={this.state.all}/>
+        </div>
     );
   }
 }
