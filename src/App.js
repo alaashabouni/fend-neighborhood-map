@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
-import locations from './data/location.json';
-import MapDisplay from '.components/MapDisplay';
+import locations from './data/locations.json'
+import MapDisplay from './components/MapDisplay'
 
 class App extends Component {
   state = {
     lat: 37.8044,
-    lon: 122.2711,
+    lon: -122.2711,
     zoom: 13,
     all: locations
   }
@@ -19,7 +19,8 @@ class App extends Component {
           <MapDisplay
             lat={this.state.lat}
             lon={this.state.lon}
-            zoom={this.state.all}/>
+            zoom={this.state.zoom}
+            locations={this.state.all}/>
         </div>
     );
   }

@@ -1,0 +1,49 @@
+{"locations":
+[
+  {
+    "name": "Blue Bottle Coffee",
+    "street": "300 Webster St",
+    "city": "Oakland",
+    "state": "CA",
+    "url": "https://bluebottlecoffee.com/",
+    "pos": {"lat": 37.795918, "lng":-122.273143 }
+  },
+
+  {
+    "name": "Modern Coffee",
+    "street": "411 13th St",
+    "city": "Oakland",
+    "state": "CA",
+    "url": "http://moderncoffeeoakland.com/",
+    "pos": {"lat":  37.803208, "lng":-122.270868 }
+  },
+
+  {
+    "name": "Bicycle Coffee Company",
+    "street": " 364 2nd St",
+    "city": "Oakland",
+    "state": "CA",
+    "url": "https://www.bicyclecoffeeco.com/",
+    "pos": {"lat":  37.7955541, "lng":-122.2742723 }
+  },
+
+  {
+    "name": "Farley's East",
+    "street": "33 Grand Ave",
+    "city": "Oakland",
+    "state": "CA",
+    "url": "http://moderncoffeeoakland.com/",
+    "pos": {"lat":  37.8112372, "lng":-122.266062 }
+  },
+
+  {
+    "name": "Timeless Coffee",
+    "street": "4252 Piedmont Ave",
+    "city": "Oakland",
+    "state": "CA",
+    "url": "https://timelesscoffee.com/",
+    "pos": {"lat":  37.8282023, "lng":-122.2496578}
+  }
+
+]
+}

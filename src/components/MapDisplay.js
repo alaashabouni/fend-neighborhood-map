@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Map, GoogleApiWrapper} from 'google-maps-react';
+import {Map, GoogleApiWrapper} from 'google-maps-react'
 
-const MAP_KEY = 'AIzaSyC2Dp774ylPFz0gGqxWlqI3ItZKEd1snlc';
+const MAP_KEY = "AIzaSyBIBjhLpE3-Z3Q8Pvz1m8z0uaYhl4SqBa4";
 
 class MapDisplay extends Component {
   state = {
-    map: null;
+    map: null,
   };
 
   componentDidMount = () => {
@@ -35,8 +35,8 @@ class MapDisplay extends Component {
         zoom={this.props.zoom}
         style={style}
         initialCenter={center}
-        onClick{this.closeInfoWindo}
-      </Map>
+        onClick={this.closeInfoWindo}
+      />
 
       )
     }
