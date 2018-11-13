@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import locations from './data/locations.json'
-import MapDisplay from './components/MapDisplay'
+import locations from './data/locations.json';
+import MapDisplay from './components/MapDisplay';
+import ListMenu from './components/ListMenu';
 
 class App extends Component {
   state = {
@@ -9,6 +10,30 @@ class App extends Component {
     lon: -122.2711,
     zoom: 14,
     all: locations
+  }
+
+  styles = {
+    menuButton: {
+      marginLeft: 10,
+      merginRight: 20,
+      position: "absolute",
+      left: 10,
+      top: 20,
+      background: "white",
+      padding: 10
+    },
+    hide: {
+      display: 'none'
+    },
+    header: {
+      marginTop: "0px"
+    }
+  };
+
+  toggleList = () => {
+    this.setState({
+      open: !this.state.open
+    });
   }
 
   render = () => {
