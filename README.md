@@ -16,3 +16,6 @@ This project displays a selection of coffeeshops in Oakland,CA. Click on Menu bu
 - Udacity Slack channel for Project 7 to help me with typos and search for errors other students encountered
 - Referenced [Doug Brown's Walkthrough](https://www.youtube.com/watch?v=NVAVLCJwAAo&feature=youtu.be) for component structure
 - Watched
+
+### APIs
+This app utilizes Google Maps and FourSquare APIs 
