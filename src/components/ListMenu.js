@@ -53,14 +53,14 @@ class ListMenu extends Component {
                             onChange={e => this
                                 .updateQuery(e.target.value)}
                             value={this.state.query} />
-                        <ul style={this.styles.noBullets}>
+                        <ul style={this.styles.noBullets} role="list">
                             {this.props.locations && this
                                 .props
                                 .locations
                                 .map((location, index) => {
                                     return (
-                                        <li style={this.styles.listItem} key={index}>
-                                            <button style={this.styles.listLink} key={index} onClick={e => this.props.clickCoffeeShop(index)}>{location.name}</button>
+                                        <li style={this.styles.listItem} key={index} role="listitem">
+                                            <button style={this.styles.listLink} key={index} onClick={e => this.props.clickCoffeeShop(index)} role="button">{location.name}</button>
                                         </li>
                                     )
                                 })}

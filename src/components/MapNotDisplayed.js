@@ -36,4 +36,4 @@ class MapNotDisplayed extends Component {
   }
 }
 
-export default MapNotDisplayed
+export default MapNotDisplayed;
