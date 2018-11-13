@@ -19,6 +19,31 @@ class MapDisplay extends Component {
     componentDidMount = () => {
     }
 
+    componentWillReceiveProps = (props) => {
+      //only one initial marker drop
+      this.setState({firstDrop: false});
+
+      //change number of markers on map based on number of locations
+      if(this.state.markers.length !== props.locations.length) {
+        this.closeInfoWindow();
+        this.updateMarkers(props.locations);
+        this.setState({activeMarker: null});
+        return;
+      }
+      //close info window for no active marker
+      if (!props.selectedIndex || (this.state.activeMarker &&
+      (this.state.markers[props.selectedIndex] !== this.state.activeMarker))) {
+        this.closeInfoWindow();
+      }
+
+      //check for selected index
+      if (props.selectedIndex === null || typeof(props.selectedIndex) === "undefined") {
+        retun;
+      };
+
+      this.onMarkerClick(this.state.markerProps[props.selectedIndex], this.state.markers[props.selectedIndex]);
+    }
+
     mapReady = (props, map) => {
         // prep location markers
         this.setState({map});

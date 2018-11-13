@@ -55,6 +55,10 @@ class App extends Component {
     return locations.filter(location => location.name.toLowerCase().includes(query.toLowerCase()));
   }
 
+  clickCoffeeShop = (index) => {
+    this.setState({selectedIndex: index, open: !this.state.open})
+  }
+
   render = () => {
    return (
      <div className="App">
@@ -68,12 +72,15 @@ class App extends Component {
          lat={this.state.lat}
          lon={this.state.lon}
          zoom={this.state.zoom}
-         locations={this.state.filtered}/>
+         locations={this.state.filtered}
+         selectedIndex={this.state.selectedIndex}
+         clickCoffeeShop={this.clickCoffeeShop}/>
        <ListMenu
          locations={this.state.filtered}
          open={this.state.open}
          toggleList={this.toggleList}
-         filterLocations={this.updateQuery}/>
+         filterLocations={this.updateQuery}
+         clickCoffeeShop={this.clickCoffeeShop}/>
      </div>
    );
  }
