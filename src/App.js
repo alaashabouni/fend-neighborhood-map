@@ -20,7 +20,7 @@ class App extends Component {
       left: 10,
       top: 20,
       background: "white",
-      padding: 10,
+      padding: 10
     },
     hide: {
       display: 'none'

@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Neighborhood Map
 
-This project displays a selection of coffeeshops in Oakland,CA. Please use the search feature to narrow down the selection. Click on location markers to learn more information about each coffee shop.
+This project displays a selection of coffeeshops in Oakland,CA. Click on Menu button in top left corner to see list of all coffee shops. Use the search feature to narrow down the selection. Click on location markers to learn more information about each coffee shop.
 
 ### Instructions
 
