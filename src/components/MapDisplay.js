@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
+import MapNotDisplayed from './MapNotDisplayed';
 
 const MAP_KEY = "AIzaSyBi7tDyVzA7Ncf1kk-wCYxJrqDXd0qHUNs";
 const FS_CLIENT = "430UINZRHZVRKNN3SUYH3TCKBNBFJTVJ2CDOCUGRETGYHWHJ";
@@ -38,7 +39,7 @@ class MapDisplay extends Component {
 
       //check for selected index
       if (props.selectedIndex === null || typeof(props.selectedIndex) === "undefined") {
-        retun;
+        return;
       };
 
       this.onMarkerClick(this.state.markerProps[props.selectedIndex], this.state.markers[props.selectedIndex]);
@@ -190,4 +191,4 @@ class MapDisplay extends Component {
     }
 }
 
-export default GoogleApiWrapper({apiKey: MAP_KEY})(MapDisplay)
+export default GoogleApiWrapper({apiKey: MAP_KEY, loadingContainer: MapNotDisplayed})(MapDisplay)
