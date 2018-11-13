@@ -39,6 +39,9 @@ class App extends Component {
   render = () => {
     return ( <div className="App">
         <div>
+          <button onClick={this.toggleList} style={this.styles.menuButton}>
+            <i className="fa fa-bars"></i>
+          </button>
           <h1>Oakland, CA Coffee Shops</h1>
         </div>
           <MapDisplay
@@ -46,6 +49,10 @@ class App extends Component {
             lon={this.state.lon}
             zoom={this.state.zoom}
             locations={this.state.all}/>
+          <ListMenu
+            locations={this.state.all}
+            open={this.state.open}
+            toggleList={this.toggleList}/>
         </div>
     );
   }
