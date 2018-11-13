@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
-import locations from '../data/locations.json';
 
 const MAP_KEY = "AIzaSyBi7tDyVzA7Ncf1kk-wCYxJrqDXd0qHUNs";
 const FS_CLIENT = "430UINZRHZVRKNN3SUYH3TCKBNBFJTVJ2CDOCUGRETGYHWHJ";
@@ -36,17 +35,57 @@ class MapDisplay extends Component {
     }
 
     getFourSquareInfo = (props, data) => {
-      return data.response.venues
-      .filter(item => intem.name.includes(props.name) || props.nameincludes(item.name));
+      return data
+           .response
+           .venues
+           .filter(item => item.name.includes(props.name) || props.name.includes(item.name));
     }
 
     onMarkerClick = (props, marker, e) => {
-        // Close any open windows
-        this.closeInfoWindow();
+       // Close any info window already open
+       this.closeInfoWindow();
 
-        // Show marker info
-        this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps: props});
-    }
+       // Get FS data coffeeshop
+       let url = `https://api.foursquare.com/v2/venues/search?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=${FS_VERSION}&radius=100&ll=${props.position.lat},${props.position.lng}&llAcc=100`;
+       let headers = new Headers();
+       let request = new Request(url, {
+           method: 'GET',
+           headers
+       });
+
+       // Create props for the active marker
+       let activeMarkerProps;
+       fetch(request)
+           .then(response => response.json())
+           .then(result => {
+               // Get just the business reference for the coffeeshop we want from FS
+               let coffeeshop = this.getFourSquareInfo(props, result);
+               activeMarkerProps = {
+                   ...props,
+                   foursquare: coffeeshop[0]
+               };
+
+               // Get the list of images for the coffeeshop if there is FourSquare data
+               if (activeMarkerProps.foursquare) {
+                   let url = `https://api.foursquare.com/v2/venues/${coffeeshop[0].id}/photos?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=${FS_VERSION}`;
+                   fetch(url)
+                       .then(response => response.json())
+                       .then(result => {
+                           activeMarkerProps = {
+                               ...activeMarkerProps,
+                               images: result.response.photos
+                           };
+                           if (this.state.activeMarker)
+                               this.state.activeMarker.setAnimation(null);
+                           marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+                           this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
+                       })
+               } else {
+                   marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
+                   this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
+               }
+           })
+   }
 
     updateMarkers = (locations) => {
         // bail out if all locations have been filtered
