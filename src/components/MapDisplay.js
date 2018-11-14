@@ -191,4 +191,4 @@ class MapDisplay extends Component {
     }
 }
 
-export default GoogleApiWrapper({apiKey: MAP_KEY, loadingContainer: MapNotDisplayed})(MapDisplay)
+export default GoogleApiWrapper({apiKey: MAP_KEY, LoadingContainer: MapNotDisplayed})(MapDisplay)
