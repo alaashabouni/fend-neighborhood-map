@@ -7,13 +7,9 @@ This project displays a selection of coffeeshops in Oakland,CA. Click on Menu bu
 ### Instructions
 
 - Clone or download this repo
-- Cd into the project
-- Run npm install and then npm start
-
-* Please note, the service worker only works in production, to do so:
-1. serve -s build
-2. npm run serve
-3. And then visit localhost:5000
+- With your command terminal pointing to the directory where the files are cloned/downloaded to, install all necessary dependencies by running npm install
+- Launch the app by running npm start
+- NOTE The service worker will only work in production build, not in development mode. You can run the app in production build by running npm run build and server -s build then visiting localhost:5000 in your browser.
 
 
 ### Acknowledgements
