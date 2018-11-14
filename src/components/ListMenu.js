@@ -48,6 +48,7 @@ class ListMenu extends Component {
                         <input
                             style={this.styles.filterEntry}
                             type="text"
+                            role="textbox"
                             placeholder="Filter list"
                             name="filter"
                             onChange={e => this
