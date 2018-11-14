@@ -61,10 +61,11 @@ class MapDisplay extends Component {
     }
 
     getFourSquareInfo = (props, data) => {
+      if (data.response != undefined? data.response:"No FourSquare data") {
       return data
            .response
            .venues
-           .filter(item => item.name.includes(props.name) || props.name.includes(item.name));
+           .filter(item => item.name.includes(props.name) || props.name.includes(item.name));};
     }
 
     onMarkerClick = (props, marker, e) => {
@@ -92,6 +93,7 @@ class MapDisplay extends Component {
                };
 
                // Get the list of images for the coffeeshop if there is FourSquare data
+               // Will finish setting state with the data we do have available
                if (activeMarkerProps.foursquare) {
                    let url = `https://api.foursquare.com/v2/venues/${coffeeshop[0].id}/photos?client_id=${FS_CLIENT}&client_secret=${FS_SECRET}&v=${FS_VERSION}`;
                    fetch(url)
@@ -106,10 +108,16 @@ class MapDisplay extends Component {
                            marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
                            this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
                        })
+                       .catch(error =>  {
+                         alert("Foursquare API error. " + error)
+                       })
                } else {
                    marker.setAnimation(this.props.google.maps.Animation.BOUNCE);
                    this.setState({showingInfoWindow: true, activeMarker: marker, activeMarkerProps});
                }
+           })
+           .catch(error =>  {
+             alert("Foursquare API error. " + error)
            })
    }
 
@@ -183,7 +191,16 @@ class MapDisplay extends Component {
                                 <a href={amProps.url}>See website</a>
                             )
                             : ""}
-
+                        {amProps && amProps.images
+                            ? (
+                                <div><img
+                                    alt={amProps.name + " food picture"}
+                                    src={amProps.images.items[0].prefix + "100x100" + amProps.images.items[0].suffix}/>
+                                    <p>Image from Foursquare</p>
+                                </div>
+                            )
+                            : ""
+                        }
                     </div>
                 </InfoWindow>
             </Map>
@@ -191,4 +208,4 @@ class MapDisplay extends Component {
     }
 }
 
-export default GoogleApiWrapper({apiKey: MAP_KEY, loadingContainer: MapNotDisplayed})(MapDisplay)
+export default GoogleApiWrapper({apiKey: MAP_KEY, LoadingContainer: MapNotDisplayed})(MapDisplay)

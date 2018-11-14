@@ -15,8 +15,9 @@ This project displays a selection of coffeeshops in Oakland,CA. Click on Menu bu
 ### Acknowledgements
 - Udacity Slack channel for Project 7 to help me with typos and search for errors other students encountered
 - Referenced [Doug Brown's Walkthrough](https://www.youtube.com/watch?v=NVAVLCJwAAo&feature=youtu.be) for component structure.
-  - Specifically for error handling. Please see MapNotDisplayed.js file
+  - Specifically for error handling when offline. Please see MapNotDisplayed.js file
 - Watched [Yahya Elharony's Video on Dynamic Markers](https://www.youtube.com/watch?v=nDJ00zO9X2U)
+- GooglMaps API error handling help from Project 7 slack channel and @Kaisma
 
 ### APIs
 This app utilizes Google Maps and FourSquare APIs
